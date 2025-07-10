@@ -41,14 +41,17 @@ app.use((req, res, next) => {
 app.use(express.static(path.join(__dirname, 'dist/mtg_organizer/browser')));
 
 // Tell express to map the default route ('/') to the index route
+console.log('Registering index route...');
 app.use('/', index);
+console.log('Registering cards route...');
 app.use('/cards', cardsRoutes);
+console.log('Registering deck route...');
 app.use('/deck-building', decksRoutes);
 
 // Tell express to map all other non-defined routes back to the index page
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'dist/mtg_organizer/browser/index.html'));
-});
+// app.get('*', (req, res) => {
+//   res.sendFile(path.join(__dirname, 'dist/mtg_organizer/browser/index.html'));
+// });
 
 // Define the port address and tell express to use this port
 const port = process.env.PORT || '3000';
