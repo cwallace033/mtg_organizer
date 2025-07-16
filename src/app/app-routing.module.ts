@@ -10,6 +10,9 @@ const routes: Routes = [
   { path: 'card-form', component: CardFormComponent },
   { path: 'cards', component: CardsPageComponent },
   { path: '', redirectTo: '/card-list', pathMatch: 'full' },
+  { path: 'deck-list', component: DeckListComponent },
+  { path: 'cards/new', component: CardFormComponent },
+  { path: 'cards/:id/edit', component: CardFormComponent },
 ];
 
 @NgModule({

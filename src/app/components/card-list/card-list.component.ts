@@ -15,7 +15,8 @@ export class CardListComponent implements OnInit, OnDestroy {
   @Output() selectedCard = new EventEmitter<Card>();
 
   onCardSelected(card: Card) {
-    this.selectedCard.emit(card);
+    console.log('Card selected from list:', card);
+    this.cardService.cardSelectedEvent.emit(card);
   }
 
   constructor(private cardService: CardService) {}

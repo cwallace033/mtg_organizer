@@ -11,13 +11,15 @@ import { CardService } from '../../services/card.service';
 export class CardsPageComponent implements OnInit{
   selectedCard: Card | null = null;
 
-  constructor(private CardService: CardService) {}
+  constructor(private cardService: CardService) {}
 
-  ngOnInit(): void {
-    this.CardService.cardSelectedEvent.subscribe(
-      (card: Card) => this.selectedCard = card
-    )
-  }
+  ngOnInit() {
+  this.cardService.cardSelectedEvent.subscribe(card => {
+    console.log('Card selected in CardsPageComponent:', card);
+    this.selectedCard = card;
+  });
+}
+
 
   onCardSelected(card: Card): void {
     this.selectedCard = { ...card};

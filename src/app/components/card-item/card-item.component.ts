@@ -10,9 +10,10 @@ import { Card } from '../../models/card.model';
 export class CardItemComponent {
 
   @Input() card!: Card;
-  @Output() cardSelected = new EventEmitter<void>(); 
+  @Output() cardSelected = new EventEmitter<Card>(); 
 
   onSelect() {
-    this.cardSelected.emit();
+    console.log('Card selected:', this.card);
+    this.cardSelected.emit(this.card);
   }
 }

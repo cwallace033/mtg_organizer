@@ -23,11 +23,13 @@
 
         <div class="panel-body">
           <div class="list-group">
-            <app-card-item
-              *ngFor="let card of cards"
-              [card]="card"
-              (cardSelected)="onCardSelected(card)">
-            </app-card-item>
+            <div>
+              <app-card-item
+                *ngFor="let card of cards"
+                [card]="card"
+                (cardSelected)="onCardSelected($event)">
+              </app-card-item>
+            </div>
           </div>
         </div>
       </div>

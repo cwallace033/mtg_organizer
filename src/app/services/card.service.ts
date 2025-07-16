@@ -32,5 +32,14 @@ export class CardService {
     this.cards.splice(index, 1);
   }
 
+  getCardById(id: string): Card | undefined {
+    return this.cards.find(card => card.id === id);
+  }
+
+  updateCardById(id: string, updateCard: Card): void {
+    const index = this.cards.findIndex(c => c.id === id);
+    if (index !== -1) this.cards[index] = updateCard;
+  }
+
   constructor() { }
 }

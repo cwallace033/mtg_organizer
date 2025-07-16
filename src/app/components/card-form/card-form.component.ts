@@ -1,5 +1,7 @@
-import { Component, Input, Output, OnChanges, SimpleChanges } from '@angular/core';
+import { Component, Input, Output, OnChanges, SimpleChanges, OnInit, input } from '@angular/core';
 import { Card } from '../../models/card.model';
+import { CardService } from '../../services/card.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-card-form',
@@ -8,26 +10,26 @@ import { Card } from '../../models/card.model';
   styleUrls: ['./card-form.component.css']
 })
 export class CardFormComponent implements OnChanges {
+  formCard: Card = { id: '', name: '', color: '', type: '', manaCost: 0, set: ''};
   @Input() card: Card | null = null;
 
-  formCard: Card = { id: '', name: '', color: '', type: '', manaCost: 0, set: ''};
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['card'] && this.card) {
-      this.formCard = { ...this.card};
-      
+      this.formCard = { ...this.card };
     } else {
-      this.formCard = { id:'', name: '', color: '', type: '', manaCost: 0, set: ''};
+      this.formCard = { id: '', name: '', color: '', type: '', manaCost: 0, set: '' };
     }
   }
 
   save() {
-    // add CRUD stuff
+    // handle save logic
   }
 
   clear() {
-    this.formCard = { id:'', name: '', color: '', type: '', manaCost: 0, set: ''};
+    this.formCard = { id: '', name: '', color: '', type: '', manaCost: 0, set: '' };
   }
-
-
 }
+
+
+
