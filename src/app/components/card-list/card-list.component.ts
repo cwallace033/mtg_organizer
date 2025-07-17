@@ -22,7 +22,9 @@ export class CardListComponent implements OnInit, OnDestroy {
   constructor(private cardService: CardService) {}
 
   ngOnInit(): void {
-    this.cards = this.cardService.getCards();
+    this.cardService.getCards().subscribe(cards => {
+      this.cards = cards;
+    });
   }
 
 

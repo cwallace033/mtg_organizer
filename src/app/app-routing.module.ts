@@ -13,6 +13,7 @@ const routes: Routes = [
   { path: 'deck-list', component: DeckListComponent },
   { path: 'cards/new', component: CardFormComponent },
   { path: 'cards/:id/edit', component: CardFormComponent },
+  { path: 'cards/new', component: CardFormComponent }
 ];
 
 @NgModule({

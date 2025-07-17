@@ -10,6 +10,7 @@ import { DeckFormComponent } from './components/deck_building/deck-form/deck-for
 import { CardsPageComponent } from './pages/cards-page/cards-page.component';
 import { FormsModule } from '@angular/forms';
 import { CardItemComponent } from './components/card-item/card-item.component';
+import {  HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import { CardItemComponent } from './components/card-item/card-item.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

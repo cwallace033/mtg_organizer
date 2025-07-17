@@ -13,6 +13,7 @@ export class CardFormComponent implements OnChanges {
   formCard: Card = { id: '', name: '', color: '', type: '', manaCost: 0, set: ''};
   @Input() card: Card | null = null;
 
+  constructor(private cardService: CardService, private route: ActivatedRoute, private router: Router) {}
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['card'] && this.card) {
@@ -23,7 +24,9 @@ export class CardFormComponent implements OnChanges {
   }
 
   save() {
-    // handle save logic
+    this.cardService.addCard(this.formCard).subscribe(() => {
+      this.router.navigate(['/cards']);
+    });
   }
 
   clear() {
